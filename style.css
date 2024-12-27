@@ -1,4 +1,5 @@
-/* Importar Poppins desde Google Fonts */
+
+/* Importar Poppins desde Google Fonts aaa */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
@@ -78,10 +79,11 @@ nav {
 
     .hamburger {
         display: block;
-        position: absolute;
+        position: fixed;
         left: 20px;
-        top: 50%;
-        transform: translateY(-50%);
+        top: 20px;
+        transform: none;
+        z-index: 2000;
     }
 
     .nav-links {
@@ -92,8 +94,9 @@ nav {
         width: 250px;
         background: #F4EDD3;
         flex-direction: column;
-        padding: 20px 20px;
+        padding-top: 60px;
         transition: 0.5s ease;
+        z-index: 1900;
     }
 
     .nav-links.active {
@@ -148,6 +151,7 @@ nav {
 
     .hamburger {
         left: 15px;
+        top: 15px;
     }
 
     .hamburger span {
@@ -173,6 +177,30 @@ nav {
     background-position: center;
     background-attachment: fixed;
     position: relative;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: 320px) {
+    .hero {
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
 }
 
 .hero::before {
