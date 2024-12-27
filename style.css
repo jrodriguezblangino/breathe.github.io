@@ -1,0 +1,892 @@
+/* Importar Poppins desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #1F9983;
+    --secondary-color: #AF1BE5;
+    --white: #FFFFFF;
+    --black: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', serif;
+    line-height: 1.6;
+    background-color: #F4EDD3;
+}
+
+/* Estilos de la navegación */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(31, 153, 131, 0.2);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+/* Estilos del menú hamburguesa */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    z-index: 1000;
+    padding: 0.5rem;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--white);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Estilos para el menú lateral */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+/* Media queries para responsive */
+@media (max-width: 768px) {
+    nav {
+        padding: 0.5rem 3%;
+        justify-content: center;
+        min-height: 165px;
+    }
+
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .logo img {
+        height: 60px;
+        margin-right: 0;
+    }
+
+    .hamburger {
+        display: block;
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .nav-links {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 70vh;
+        width: 250px;
+        background: #F4EDD3;
+        flex-direction: column;
+        padding: 20px 20px;
+        transition: 0.5s ease;
+    }
+
+    .nav-links.active {
+        right: 0;
+        background: rgba(31, 153, 131, 1);
+        height: 90vh;
+    }
+
+    .nav-links a {
+        margin: 0.8rem 0;
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    .nav-links a::after {
+        background: #333;
+    }
+
+    /* Animación del menú hamburguesa */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        padding: 0.5rem 2%;
+        min-height: 150px;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    .nav-links {
+        width: 100%;
+        height: 60vh;
+        padding: 15px 20px;
+    }
+
+    .nav-links.active {
+        height: 90vh;
+    }
+
+    .hamburger {
+        left: 15px;
+    }
+
+    .hamburger span {
+        width: 22px;
+    }
+
+    .nav-links a {
+        margin: 0.6rem 0;
+    }
+}
+
+/* Ajuste para el scroll */
+.nav-scrolled {
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header y Navegación */
+.hero {
+    height: 100vh;
+    background-image: url('./estudio-de-pilates.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.logo img {
+    height: 80px;
+    margin-right: 1rem;
+    border-radius: 50%;
+}
+
+.logo span {
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    margin-left: 2rem;
+    position: relative;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--white);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Sección Quienes Somos */
+#quienes-somos {
+    padding: 4rem 0;
+}
+
+#quienes-somos .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem 10%;
+    align-items: center;
+}
+
+#quienes-somos h2 {
+    color: #1F9983;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.profile-image {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-image img {
+    border-radius: 50%;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: cover;
+}
+
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.profile-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333;
+    text-align:justify;
+}
+
+.cta-button {
+    background-color: #1F9983;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center;
+    font-family: 'Poppins', serif;
+    text-decoration: none;
+    margin-top: 2rem;
+}
+
+.cta-button:hover {
+    background-color: #167561; /* Versión más oscura del color original */
+}
+
+/* Ajustes responsive para Quienes Somos */
+@media (max-width: 768px) {
+    #quienes-somos .container {
+        grid-template-columns: 1fr;
+        padding: 2rem 5%;
+        text-align: center;
+    }
+
+    #quienes-somos h2 {
+        font-size: 2rem;
+    }
+
+    .profile-image {
+        margin-bottom: 2rem;
+    }
+
+    .profile-image img {
+        max-width: 300px;
+    }
+
+    .profile-content {
+        align-items: center;
+    }
+
+    .profile-content p {
+        font-size: 0.95rem;
+        text-align:center;
+        padding: 0 2rem;
+        line-height: 1.6;
+    }
+
+    .cta-button {
+        align-self: center;
+        margin-top: 1.5rem;
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    #quienes-somos .container {
+        padding: 1rem 3%;
+    }
+
+    #quienes-somos h2 {
+        font-size: 1.8rem;
+    }
+
+    .profile-image img {
+        max-width: 250px;
+    }
+
+    .profile-content p {
+        font-size: 0.9rem;
+        padding: 0 1.5rem;
+        line-height: 1.4;
+        text-align:center;
+    }
+
+    .cta-button {
+        padding: 0.8rem 1.6rem;
+        font-size: 1rem;
+        margin-top: 1.2rem;
+    }
+}
+
+/* Grid de beneficios */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem 10%;
+    background-color: #1F9983;
+}
+
+/* Estilos para el contenido del hero */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--white);
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links a {
+        margin: 1rem 0;
+        font-size: 1.5rem;
+    }
+}
+
+/* Sección Por qué hacer pilates */
+#por-que-pilates {
+    padding: 8rem 0;
+    background-color: #f9f9f9;
+}
+
+#por-que-pilates h2 {
+    text-align: center;
+    color: #1F9983;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 4rem 10%;
+}
+
+.benefit-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* En desktop mantenemos el hover */
+@media (min-width: 769px) {
+    .benefit-card:hover {
+        transform: translateY(-5px);
+    }
+}
+
+/* En móvil, preparamos la animación para scroll */
+@media (max-width: 768px) {
+    .benefit-card {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .benefit-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.benefit-icon {
+    margin-bottom: 1.5rem;
+    transition: all 0.4s ease-out;
+}
+
+.benefit-icon img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    transition: all 0.4s ease-out;
+}
+
+/* Efecto hover para desktop */
+@media (min-width: 769px) {
+    .benefit-card:hover .benefit-icon img {
+        transform: scale(1.1) rotate(5deg);
+    }
+}
+
+/* Efecto para móvil al hacer scroll */
+@media (max-width: 768px) {
+    .benefit-card {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s ease-out;
+    }
+
+    .benefit-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .benefit-card.visible .benefit-icon img {
+        animation: iconAppear 0.6s ease-out forwards;
+    }
+}
+
+/* Definimos la animación */
+@keyframes iconAppear {
+    0% {
+        transform: scale(0.5) rotate(-15deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1) rotate(5deg);
+    }
+    100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+.benefit-card h3 {
+    color: #1F9983;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.benefit-card p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Responsive para las tarjetas de beneficios */
+@media (max-width: 768px) {
+    #por-que-pilates {
+        padding: 3rem 0;
+    }
+
+    #por-que-pilates h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        padding: 3rem 8%;
+        gap: 1.5rem;
+    }
+
+    .benefit-card {
+        padding: 1.5rem;
+    }
+
+    .benefit-icon img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .benefit-card h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #por-que-pilates h2 {
+        font-size: 1.8rem;
+    }
+
+    .benefits-grid {
+        padding: 2rem 6%;
+    }
+
+    .benefit-card {
+        padding: 1.2rem;
+    }
+}
+
+/* Sección Planes y Promociones */
+#planes-promociones {
+    padding: 8rem 0;
+    background-color: #F4EDD3;
+}
+
+#planes-promociones h2 {
+    text-align: center;
+    color: #1F9983;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+#planes-promociones .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    padding: 0 10%;
+}
+
+/* Animación para los contenedores */
+.plans-box, .promos-box {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+/* Clase que se añadirá con JavaScript */
+.plans-box.visible, .promos-box.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animación para los elementos dentro de los contenedores */
+.plans-box li, .promos-box li {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+    transition: all 0.4s ease-out;
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+/* Clase que se añadirá con JavaScript */
+.plans-box li.visible, .promos-box li.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Añadimos delay a cada elemento de la lista */
+.plans-box li:nth-child(1), .promos-box li:nth-child(1) { transition-delay: 0.2s; }
+.plans-box li:nth-child(2), .promos-box li:nth-child(2) { transition-delay: 0.3s; }
+.plans-box li:nth-child(3), .promos-box li:nth-child(3) { transition-delay: 0.4s; }
+.plans-box li:nth-child(4), .promos-box li:nth-child(4) { transition-delay: 0.5s; }
+
+/* Animación hover en desktop */
+@media (min-width: 769px) {
+    .plans-box li:hover, .promos-box li:hover {
+        background-color: #f9f9f9;
+        transform: translateX(5px);
+        transition: all 0.4s ease-out;
+    }
+}
+
+.box-header {
+    background: #1F9983;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.promos-box .box-header {
+    background: #1F9983; /* Color secundario para diferenciar */
+}
+
+.box-header h3 {
+    color: white;
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.plans-box ul, .promos-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.plans-box li, .promos-box li {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s ease;
+}
+
+.plans-box li:last-child, .promos-box li:last-child {
+    border-bottom: none;
+}
+
+.plans-box li:hover, .promos-box li:hover {
+    background-color: #f9f9f9;
+}
+
+.plans-box img, .promos-box img {
+    width: 40px;
+    height: 40px;
+    margin-right: 1rem;
+    object-fit: contain;
+}
+
+.plans-box span, .promos-box span {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #planes-promociones {
+        padding: 4rem 0;
+    }
+
+    #planes-promociones h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    #planes-promociones .container {
+        padding: 0 8%;
+        gap: 2rem;
+    }
+
+    .box-header h3 {
+        font-size: 1.5rem;
+    }
+
+    .plans-box li, .promos-box li {
+        padding: 1.2rem;
+    }
+
+    .plans-box span, .promos-box span {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #planes-promociones .container {
+        padding: 0 6%;
+    }
+
+    .box-header h3 {
+        font-size: 1.3rem;
+    }
+
+    .plans-box img, .promos-box img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Footer unificado con CTA social */
+footer {
+    background-color: var(--white);
+    padding: 4rem 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.social-container {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer h2 {
+    color: #1F9983;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Poppins', serif;
+    padding: 0 1rem;
+}
+
+footer p {
+    color: #333;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-family: 'Poppins', serif;
+    padding: 0 1rem;
+    max-width: 600px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-links img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    footer {
+        padding: 3rem 0;
+    }
+
+    .social-container {
+        padding: 1rem;
+    }
+
+    footer h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    footer p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .social-links {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 2rem 0;
+    }
+
+    .social-container {
+        padding: 1rem 0.5rem;
+    }
+
+    footer h2 {
+        font-size: 1.6rem;
+        padding: 0 0.5rem;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 1.2rem;
+    }
+
+    .social-links {
+        gap: 1rem;
+    }
+
+    .social-links img {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 320px) {
+    footer {
+        padding: 1.5rem 0;
+    }
+
+    footer h2 {
+        font-size: 1.4rem;
+    }
+
+    footer p {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+
+    .social-links {
+        gap: 0.8rem;
+    }
+}
+
+/* Ajustamos el color de las líneas del menú hamburguesa */
+.hamburger span {
+    background-color: #333;
+}
+
+/* Ajustamos la animación del menú hamburguesa cuando está activo */
+.hamburger.active span {
+    background-color: #333;
+}
