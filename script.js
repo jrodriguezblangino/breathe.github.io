@@ -7,6 +7,7 @@ const nav = document.querySelector('nav');
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('active');
+    navLinks.classList.remove('hide');
 });
 
 // Cerrar menú al hacer click en un enlace
@@ -14,6 +15,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
+        navLinks.classList.add('hide');
     });
 });
 
@@ -47,6 +49,7 @@ document.addEventListener('click', (e) => {
     if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
+        navLinks.classList.add('hide');
     }
 });
 
