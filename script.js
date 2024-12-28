@@ -103,3 +103,22 @@ const plansObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.plans-box, .promos-box').forEach(box => {
     plansObserver.observe(box);
 });
+
+// Variables para el control del scroll
+let lastScrollTop = 0;
+
+// Función para controlar la visibilidad del menú hamburguesa
+window.addEventListener('scroll', () => {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (window.innerWidth <= 768) {
+        if (scrollTop > lastScrollTop) {
+            // Scroll hacia abajo
+            hamburger.classList.add('hide');
+        } else {
+            // Scroll hacia arriba
+            hamburger.classList.remove('hide');
+        }
+        lastScrollTop = scrollTop;
+    }
+});
