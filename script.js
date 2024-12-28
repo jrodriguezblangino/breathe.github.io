@@ -119,11 +119,10 @@ window.addEventListener('scroll', () => {
     
     if (window.innerWidth <= 768) {
         if (scrollTop > lastScrollTop) {
-            // Scroll hacia abajo
+            // Scroll hacia abajo - cerrar completamente el menú
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
             navLinks.classList.add('hide');
-        } else {
-            // Scroll hacia arriba
-            navLinks.classList.remove('hide');
         }
         lastScrollTop = scrollTop;
     }
