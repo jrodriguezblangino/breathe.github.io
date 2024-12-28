@@ -21,8 +21,14 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
         nav.classList.add('nav-scrolled');
+        if (window.innerWidth <= 768) {
+            hamburger.style.display = 'none';
+        }
     } else {
         nav.classList.remove('nav-scrolled');
+        if (window.innerWidth <= 768) {
+            hamburger.style.display = 'block';
+        }
     }
 });
 
